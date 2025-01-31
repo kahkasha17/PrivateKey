@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="message.css" />
+    <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script> 
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+   
+
+    </style>
+    <title>PrivateKey</title>
+  </head>
+  <body class="not-loaded">
+    <div class="night">
+      <div>
+        <p class="cursor typewriter-animation">Hi Cutie !</p>
+        <p class="responsive-paragraph">
+          See, you know me, I’m not good with words, but I’ll just try to write
+          something. I don’t even know how to express this, but you really,
+          really mean so much to me. I can’t explain it in words, but I know
+          you’ll understand. So, my cutie, you are not just my best friend, you
+          are my family, and trust me, you are a part of my life that I never
+          want to lose. I’ve already lost so much, but I never want to lose
+          those memories related to you. Each one is incredibly important to me.
+          I don’t know when my situation will improve, but I really want you to
+          be there in my good times, just like you’ve been there in my bad
+          times. I know, I know I always says that you don't understand me but I
+          don’t even understand myself, how would you? But still,you’ve always
+          understand me and stood by me, and that means the world to me. Ugh,
+          writing this letter is so hard, but imagine the good lines that my
+          heart wants to say. I’m so tired now... I’ll stop here.But but but at
+          the last I want to say
+          <b>SARANGHAE <span style="color: red">&#10084; </span></b>
+        </p>
+      </div>
+    <div class="flex-container">
+    <h1>Do you miss me?</h1>
+    <div class="buttons-container">
+        <button id="yes-btn">Yes</button>
+        <button id="runaway-btn">No</button>
+    </div>
+</div>
+
+<script>
+
+
+
+            const button = document.getElementById("runaway-btn");
+            const animateMove = (element, prop, pixels) =>
+                anime({
+                    targets: element,
+                    [prop]: `${pixels}px`,
+                    easing: "easeOutCirc"
+                });
+
+                    ["mouseover", "click"].forEach(function (el) {
+                    button.addEventListener(el, function (event) {
+                        const top = getRandomNumber(window.innerHeight - this.offsetHeight);
+                        const left = getRandomNumber(window.innerWidth - this.offsetWidth);
+
+                        animateMove(this, "left", left).play();
+                        animateMove(this, "top", top).play();
+                    });
+                    });
+
+            const getRandomNumber = (num) => {
+            return Math.floor(Math.random() * (num + 1));
+            };
+
+</script>
+  </body>
+</html>
