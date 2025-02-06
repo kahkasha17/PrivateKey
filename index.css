@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;800&display=swap");
-@import url(https://fonts.googleapis.com/css?family=Anonymous+Pro);
+@import url("https://fonts.googleapis.com/css?family=Anonymous+Pro");
 @import url("https://fonts.googleapis.com/css2?family=Lora&display=swap");
 
 :root {
@@ -144,9 +144,6 @@ body {
   margin: 0;
 }
 
-.subtitle {
-}
-
 .aurora {
   position: absolute;
   top: 0;
@@ -216,49 +213,54 @@ body {
   align-items: flex-end; /* Align the button to the bottom */
 }
 button {
-  height: 100%; /* Height of the button */
-  width: 25%; /* Width of the button */
+  height: auto; /* Prevents unwanted stretching */
+  min-height: 50px; /* Ensures a proper button height */
+  width: 25%; /* Default width */
   cursor: pointer;
   background-color: #08e1ae;
   background-image: linear-gradient(315deg, #08e1ae 0%, #98de5b 74%);
   border: none;
   border-radius: 50px 50px 30px 30px;
-  transition: 1s;
+  transition: 1s ease; /* Smooth transition */
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
-}
-
-button:active {
-  border: none;
-  outline: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 15px; /* Padding for spacing */
 }
 
 button a {
   font-family: "Fredoka One", cursive;
-  font-size: 30px;
+  font-size: 30px; /* Default font size for larger screens */
   text-decoration: none;
   color: rgba(37, 61, 29, 0.7);
   display: flex;
   justify-content: center;
-  align-items: flex-end;
+  align-items: center;
+  transition: 0.3s ease; /* Smooth transition for the text */
+  white-space: nowrap; /* Prevent text from wrapping */
 }
 
+/* Hover effect - apply transformations without affecting height */
 button:hover {
-  border-radius: 100px 100px 20px 20px;
-  height: 100%;
-  width: 26%;
+  border-radius: 100px 100px 20px 20px; /* Adjust border radius */
+  transform: translateY(-2px); /* Slight lift effect */
+  width: 25%; /* Keep width fixed on hover */
 }
 
+/* Scale effect on hover */
 button:hover .scale {
   letter-spacing: 5px;
   font-size: 25px;
-  transition: 1s;
+  transition: 0.3s ease;
 }
 
+/* Rotation effects */
 .rotate-1,
 .rotate-2,
 .rotate-3,
 .rotate-4 {
-  transition: 1s;
+  transition: 0.3s ease;
 }
 
 button:hover .rotate-1 {
@@ -277,8 +279,23 @@ button:hover .rotate-4 {
   transform: rotate(-25deg);
 }
 
-button:active {
-  filter: hue-rotate(90deg);
+/* 📱 Mobile Fixes - Remove hover effect completely */
+@media (max-width: 768px) {
+  button {
+    width: 50%; /* Default button width for mobile */
+    min-height: 45px; /* Keep button height balanced */
+    padding: 8px 12px; /* Adjust padding for mobile */
+  }
+
+  button a {
+    font-size: 18px; /* Decrease font size on smaller screens */
+  }
+
+  /* Remove hover effect completely on mobile */
+  button:hover {
+    transform: none; /* No hover transformations */
+    width: 50%; /* Keep width fixed */
+  }
 }
 
 @keyframes aurora-1 {
